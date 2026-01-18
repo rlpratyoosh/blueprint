@@ -1,4 +1,4 @@
-![Blueprint](https://capsule-render.vercel.app/api?type=waving&color=000000&height=250&section=header&text=Blueprint&fontSize=90&animation=fadeIn&fontAlignY=38&desc=The%20Godly%20Full-Stack%20Template&descAlignY=51&descAlign=50)
+![Blueprint](https://capsule-render.vercel.app/api?type=waving&color=06b6d4&height=250&section=header&text=Blueprint&fontSize=90&animation=fadeIn&fontAlignY=38)
 
 <div align="center">
 
