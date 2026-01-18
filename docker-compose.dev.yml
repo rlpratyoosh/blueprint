@@ -1,0 +1,43 @@
+
+services:
+  postgres:
+    image: postgres:17-alpine
+    container_name: blueprint_postgres_dev
+    restart: always
+    environment:
+      POSTGRES_USER: ${DB_USER:-postgres}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-password}
+      POSTGRES_DB: ${DB_NAME:-blueprint}
+    ports:
+      - "5432:5432"
+    volumes:
+      - blueprint_postgres_dev_data:/var/lib/postgresql/data
+    networks:
+      - blueprint_dev_network
+
+  redis:
+    image: redis:alpine
+    container_name: blueprint_redis_dev
+    restart: always
+    ports:
+      - "6379:6379" 
+    volumes:
+      - blueprint_redis_dev_data:/data
+    networks:
+      - blueprint_dev_network
+
+  nginx:
+    image: nginx:alpine
+    container_name: blueprint_nginx_dev
+    restart: always
+    network_mode: host
+    volumes:
+      - ./docker/nginx/nginx.dev.conf:/etc/nginx/nginx.conf:ro
+
+networks:
+  blueprint_dev_network:
+    driver: bridge
+
+volumes:
+  blueprint_postgres_dev_data:
+  blueprint_redis_dev_data:
